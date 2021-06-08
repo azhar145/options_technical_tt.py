@@ -4,7 +4,7 @@ import pandas as pd
 import datetime as dt
 import sys
 import numpy as np
-from talib import stream
+#from talib import stream
 import matplotlib.pyplot as plt
 def m(x):
     x='pupu yar'
