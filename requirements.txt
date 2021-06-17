@@ -12,3 +12,4 @@ alpha_vantage
 matplotlib
 anaconda
 ta-lib
+html5lib

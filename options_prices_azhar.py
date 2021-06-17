@@ -22,25 +22,29 @@ pd.set_option("display.expand_frame_repr", False)
 
 
 dd_most_active=pd.DataFrame(f.get_day_most_active())
-dd_most_active['Vol_delta']=100*(dd_most_active['Volume']/dd_most_active['Avg Vol (3 month)'])
-dd_most_active['Vol_delta']=dd_most_active['Vol_delta'].round(2)
+dd_most_active['%_Vol_delta']=100*(dd_most_active['Volume']/dd_most_active['Avg Vol (3 month)'])-100
+dd_most_active['%_Vol_delta']=dd_most_active['%_Vol_delta'].round(2)
 print('---------------  Most Active -----------------------')
-print(dd_most_active)
+#print(dd_most_active.columns)
+print(dd_most_active.sort_values(by=['Volume'], ascending=False))
 print('\n\n')
 
 
 print('---------------------- Day Gainers ---------------------')        
 dd_day_gainers=pd.DataFrame(f.get_day_gainers())
-dd_day_gainers['Vol_delta']=100*(dd_day_gainers['Volume']/dd_day_gainers['Avg Vol (3 month)'])
-dd_day_gainers['Vol_delta']=dd_day_gainers['Vol_delta'].round(2)
-print(dd_day_gainers)
+dd_day_gainers['%_Vol_delta']=100*(dd_day_gainers['Volume']/dd_day_gainers['Avg Vol (3 month)'])-100
+dd_day_gainers['%_Vol_delta']=dd_day_gainers['%_Vol_delta'].round(2)
+
+print("stupid_azhar")
+print(dd_day_gainers.columns)   
+print(dd_day_gainers.sort_values(by=['Change'], ascending=False))
 print('\n\n')
 
 print('---------------------- Day Losers  ---------------------')        
 dd_day_losers=pd.DataFrame(f.get_day_losers())
-dd_day_losers['Vol_delta']=100*(dd_day_losers['Volume']/dd_day_losers['Avg Vol (3 month)'])
-dd_day_losers['Vol_delta']=dd_day_losers['Vol_delta'].round(2)
-print(dd_day_losers)
+dd_day_losers['%_Vol_delta']=100*(dd_day_losers['Volume']/dd_day_losers['Avg Vol (3 month)'])-100
+dd_day_losers['%_Vol_delta']=dd_day_losers['%_Vol_delta'].round(2)
+print(dd_day_losers.sort_values(by=['Change'], ascending=True))
 
 
 #########################################################################
